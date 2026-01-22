@@ -27,7 +27,7 @@ export default function SortimentPage() {
               Sortiment
             </h1>
             <p className="text-base sm:text-lg text-gray-600">
-              Utforska vårt sortiment av fyrvkerier av högsta kvalitet!
+              Utforska vårt sortiment fyrvkerier av högsta kvalitet!
             </p>
           </div>
         </div>
