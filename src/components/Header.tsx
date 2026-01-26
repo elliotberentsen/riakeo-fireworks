@@ -14,7 +14,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-[1000]">
       <div className="bg-black text-white">
         <div className="max-w-[1440px] mx-auto px-2.5 sm:px-4 lg:px-8">
           <div className="flex items-center justify-between h-12 md:h-12 lg:h-12">
@@ -82,7 +82,7 @@ export default function Header() {
 
       {/* Mobile Fullscreen Navigation */}
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-white transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 z-[600] bg-white transition-all duration-300 ${
           isMenuOpen
             ? "opacity-100 pointer-events-auto translate-y-0"
             : "opacity-0 pointer-events-none -translate-y-2"

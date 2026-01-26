@@ -1,21 +1,17 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import ProductSlider from "@/components/ProductSlider";
+import RetailersBanner from "@/components/RetailersBanner";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--background)]">
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Contact />
+        <ProductSlider />
+        <RetailersBanner />
       </main>
-      <Footer />
     </div>
   );
 }
