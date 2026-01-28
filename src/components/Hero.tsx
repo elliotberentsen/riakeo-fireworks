@@ -11,10 +11,9 @@ export default function Hero() {
           fill
           className="object-cover object-top"
           priority
-          quality={90}
         />
       </div>
-      
+
       {/* Mobile Background */}
       <div className="absolute inset-0 md:hidden">
         <Image
@@ -23,7 +22,6 @@ export default function Hero() {
           fill
           className="object-cover object-top"
           priority
-          quality={90}
         />
       </div>
       

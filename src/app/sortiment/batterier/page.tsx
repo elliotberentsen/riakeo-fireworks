@@ -1,11 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ItemListJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { products } from "@/data/products";
 
 export const metadata = {
-  title: "Batterier | Riakeo Fireworks",
-  description: "Utforska vårt sortiment av batterier.",
+  title: "Batterier - Bombtårtor",
+  description:
+    "Köp bombtårtor från Riakeo. Kraftfulla batterier med upp till 51 skott för en spektakulär fyrverkerishow. Perfekt för nyår och evenemang.",
+  openGraph: {
+    title: "Batterier - Fyrverkeribatterier | Riakeo Fireworks",
+    description:
+      "Kraftfulla fyrverkeribatterier med upp till 51 skott för en spektakulär show.",
+  },
+  alternates: {
+    canonical: "/sortiment/batterier",
+  },
 };
 
 export default function BatterierPage() {
@@ -15,20 +26,32 @@ export default function BatterierPage() {
       product.subcategoryLabel?.toLowerCase() === "batterier"
   );
 
+  const breadcrumbItems = [
+    { name: "Hem", url: "https://riakeo.se" },
+    { name: "Sortiment", url: "https://riakeo.se/sortiment" },
+    { name: "Batterier", url: "https://riakeo.se/sortiment/batterier" },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      <ItemListJsonLd
+        name="Fyrverkeribatterier från Riakeo"
+        description="Kraftfulla fyrverkeribatterier för en spektakulär show"
+        products={batterier}
+      />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <Header />
       <div className="h-12" />
 
       <section className="pt-4 pb-0 sm:pt-4">
         <div className="max-w-[1440px] mx-auto px-2.5 sm:px-4 lg:px-8">
-          <div className="mb-4 text-xs sm:text-sm text-gray-500">
-            <span>Hem</span>
+          <nav className="mb-4 text-xs sm:text-sm text-gray-500" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-900 transition-colors">Hem</Link>
             <span className="mx-2">/</span>
-            <span>Sortiment</span>
+            <Link href="/sortiment" className="hover:text-gray-900 transition-colors">Sortiment</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-900">Batterier</span>
-          </div>
+            <span className="text-gray-900" aria-current="page">Batterier</span>
+          </nav>
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 md:pt-8 pt-2 mb-3">
               Batterier
@@ -108,6 +131,7 @@ export default function BatterierPage() {
           )}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

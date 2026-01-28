@@ -1,27 +1,49 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ItemListJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { products } from "@/data/products";
 
 export const metadata = {
-  title: "Sortiment | Riakeo Fireworks",
-  description: "Utforska vårt sortiment av fyrverkerier av högsta kvalitet.",
+  title: "Sortiment - Alla Fyrverkerier",
+  description:
+    "Utforska Riakeos kompletta sortiment av fyrverkerier. Batterier, compounds och mer - högkvalitativa fyrverkerier för nyår, bröllop och evenemang i Sverige.",
+  openGraph: {
+    title: "Sortiment - Alla Fyrverkerier | Riakeo Fireworks",
+    description:
+      "Utforska vårt kompletta sortiment av högkvalitativa fyrverkerier. Batterier, compounds och mer.",
+  },
+  alternates: {
+    canonical: "/sortiment",
+  },
 };
 
 export default function SortimentPage() {
+  const breadcrumbItems = [
+    { name: "Hem", url: "https://riakeo.se" },
+    { name: "Sortiment", url: "https://riakeo.se/sortiment" },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      <ItemListJsonLd
+        name="Riakeo Fyrverkerier - Komplett Sortiment"
+        description="Alla fyrverkerier från Riakeo - batterier, compounds och mer"
+        products={products}
+      />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <Header />
       <div className="h-12" />
-      
+
       {/* Page Header */}
       <section className="pt-4 pb-0 sm:pt-4">
         <div className="max-w-[1440px] mx-auto px-2.5 sm:px-4 lg:px-8">
-          <div className="mb-4 text-xs sm:text-sm text-gray-500">
-            <span>Hem</span>
+          <nav className="mb-4 text-xs sm:text-sm text-gray-500" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-900 transition-colors">Hem</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-900">Sortiment</span>
-          </div>
+            <span className="text-gray-900" aria-current="page">Sortiment</span>
+          </nav>
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 md:pt-8 pt-2 mb-3">
               Sortiment
@@ -99,6 +121,7 @@ export default function SortimentPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

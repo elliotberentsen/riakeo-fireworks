@@ -110,6 +110,8 @@ export default function RetailersSection({ retailers }: RetailersSectionProps) {
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null);
   const desktopContentRefs = useRef<(HTMLDivElement | null)[]>([]);
   const mobileContentRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const mobileAccordionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const desktopAccordionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const initialCenter: [number, number] = [62.5, 15.5];
 
@@ -128,6 +130,25 @@ export default function RetailersSection({ retailers }: RetailersSectionProps) {
     }
   };
 
+  // Auto-scroll to selected retailer in the list
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    // Small delay to allow sheet animation to complete
+    const timeoutId = setTimeout(() => {
+      const isMobile = window.innerWidth < 768;
+      const ref = isMobile 
+        ? mobileAccordionRefs.current[activeIndex]
+        : desktopAccordionRefs.current[activeIndex];
+      
+      if (ref) {
+        ref.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 350);
+
+    return () => clearTimeout(timeoutId);
+  }, [activeIndex]);
+
   const toggleSheet = () => {
     setIsSheetOpen(!isSheetOpen);
   };
@@ -145,6 +166,7 @@ export default function RetailersSection({ retailers }: RetailersSectionProps) {
   // Accordion content component with separate refs for desktop/mobile
   const AccordionList = ({ variant }: { variant: "desktop" | "mobile" }) => {
     const contentRefs = variant === "desktop" ? desktopContentRefs : mobileContentRefs;
+    const accordionRefs = variant === "desktop" ? desktopAccordionRefs : mobileAccordionRefs;
     
     return (
       <div className="space-y-2">
@@ -154,6 +176,7 @@ export default function RetailersSection({ retailers }: RetailersSectionProps) {
           return (
             <div
               key={uniqueKey}
+              ref={(el) => { accordionRefs.current[index] = el; }}
               className={`rounded-xl border overflow-hidden transition-all duration-300 ${
                 isActive
                   ? "border-gray-900 bg-gray-50"

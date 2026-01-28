@@ -22,14 +22,11 @@ export default function ProductSlider() {
     <section className="py-12 md:py-20 bg-white">
       <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex items-end justify-between mb-6 md:mb-10">
+        <div className="flex items-end justify-between mb-6 md:mb-4">
           <div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
+            <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
               Utforska vårt sortiment
             </h2>
-            <p className="mt-2 md:mt-3 text-gray-600 text-base md:text-lg">
-              Upptäck våra mest populära fyrverkerier
-            </p>
           </div>
 
           {/* Navigation Arrows - Desktop */}

@@ -2,7 +2,10 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ProductAccordion from "@/components/ProductAccordion";
+import SimilarProducts from "@/components/SimilarProducts";
+import { ProductJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { products, getProductBySlug } from "@/data/products";
 
 interface ProductPageProps {
@@ -18,14 +21,38 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
-  
+
   if (!product) {
     return { title: "Produkt hittades inte" };
   }
 
+  const description = `${product.name} - ${product.categoryLabel} med ${product.specifications.shots} skott och ${product.specifications.effectHeight}m effekthöjd. ${product.description.slice(0, 100)}...`;
+
   return {
-    title: `${product.name} | Riakeo Fireworks`,
-    description: product.description.slice(0, 160),
+    title: product.name,
+    description: description.slice(0, 160),
+    openGraph: {
+      title: `${product.name} | Riakeo Fireworks`,
+      description: description.slice(0, 160),
+      type: "website",
+      images: [
+        {
+          url: product.images.main,
+          width: 800,
+          height: 800,
+          alt: product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.name,
+      description: description.slice(0, 160),
+      images: [product.images.main],
+    },
+    alternates: {
+      canonical: `/produkt/${product.slug}`,
+    },
   };
 }
 
@@ -45,8 +72,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const videoId = product.videoUrl ? getYouTubeId(product.videoUrl) : null;
 
+  const breadcrumbItems = [
+    { name: "Hem", url: "https://riakeo.se" },
+    { name: "Sortiment", url: "https://riakeo.se/sortiment" },
+    { name: product.name, url: `https://riakeo.se/produkt/${product.slug}` },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      <ProductJsonLd product={product} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <Header />
       <div className="h-12" />
 
@@ -119,6 +154,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Similar Products */}
+      <SimilarProducts currentSlug={product.slug} category={product.category} />
+      <Footer />
     </div>
   );
 }

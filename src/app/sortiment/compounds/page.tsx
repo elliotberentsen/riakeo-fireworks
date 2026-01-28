@@ -1,11 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ItemListJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { products } from "@/data/products";
 
 export const metadata = {
-  title: "Compounds | Riakeo Fireworks",
-  description: "Utforska vårt sortiment av compounds.",
+  title: "Compounds - Professionella Fyrverkerier",
+  description:
+    "Köp compounds från Riakeo - professionella fyrverkeripjäser med upp till 152 skott och 85 sekunders brinntid. Maximal effekt för stora evenemang.",
+  openGraph: {
+    title: "Compounds - Professionella Fyrverkerier | Riakeo Fireworks",
+    description:
+      "Professionella compounds med upp till 152 skott för en imponerande fyrverkerishow.",
+  },
+  alternates: {
+    canonical: "/sortiment/compounds",
+  },
 };
 
 export default function CompoundsPage() {
@@ -15,20 +26,32 @@ export default function CompoundsPage() {
       product.subcategoryLabel?.toLowerCase() === "compounds"
   );
 
+  const breadcrumbItems = [
+    { name: "Hem", url: "https://riakeo.se" },
+    { name: "Sortiment", url: "https://riakeo.se/sortiment" },
+    { name: "Compounds", url: "https://riakeo.se/sortiment/compounds" },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      <ItemListJsonLd
+        name="Compounds från Riakeo"
+        description="Professionella compounds för en imponerande fyrverkerishow"
+        products={compounds}
+      />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <Header />
       <div className="h-12" />
 
       <section className="pt-4 pb-0 sm:pt-4">
         <div className="max-w-[1440px] mx-auto px-2.5 sm:px-4 lg:px-8">
-          <div className="mb-4 text-xs sm:text-sm text-gray-500">
-            <span>Hem</span>
+          <nav className="mb-4 text-xs sm:text-sm text-gray-500" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-gray-900 transition-colors">Hem</Link>
             <span className="mx-2">/</span>
-            <span>Sortiment</span>
+            <Link href="/sortiment" className="hover:text-gray-900 transition-colors">Sortiment</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-900">Compounds</span>
-          </div>
+            <span className="text-gray-900" aria-current="page">Compounds</span>
+          </nav>
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 md:pt-8 pt-2 mb-3">
               Compounds
@@ -108,6 +131,7 @@ export default function CompoundsPage() {
           )}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

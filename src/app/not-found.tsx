@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Header />
       <div className="h-12" />
-      <main className="max-w-[960px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <main className="flex-1 max-w-[960px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="space-y-4">
           <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-gray-500">
             404
@@ -34,6 +35,7 @@ export default function NotFound() {
           </Link>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
