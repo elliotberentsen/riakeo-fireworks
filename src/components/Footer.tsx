@@ -95,7 +95,7 @@ export default function Footer() {
                   href="mailto:info@riakeo.se"
                   className="text-gray-400 hover:text-white transition-colors text-sm"
                 >
-                  info@riakeo.se
+                  kundtjanst@festivalfyrverkerier.com
                 </a>
               </li>
             </ul>
