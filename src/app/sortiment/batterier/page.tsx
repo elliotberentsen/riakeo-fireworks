@@ -8,11 +8,11 @@ import { products } from "@/data/products";
 export const metadata = {
   title: "Batterier - Bombtårtor",
   description:
-    "Köp bombtårtor från Riakeo. Kraftfulla batterier med upp till 51 skott för en spektakulär fyrverkerishow. Perfekt för nyår och evenemang.",
+    "Köp bombtårtor från Riakeo. Kraftfulla batterier med upp till 61 skott för en spektakulär fyrverkerishow. Perfekt för nyår och evenemang.",
   openGraph: {
     title: "Batterier - Fyrverkeribatterier | Riakeo Fireworks",
     description:
-      "Kraftfulla fyrverkeribatterier med upp till 51 skott för en spektakulär show.",
+      "Kraftfulla fyrverkeribatterier med upp till 61 skott för en spektakulär show.",
   },
   alternates: {
     canonical: "/sortiment/batterier",

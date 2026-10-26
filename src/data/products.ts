@@ -11,9 +11,9 @@ export interface ProductSpecifications {
   /** Kaliber i mm */
   caliber: number | string;
   /** Typ av skott */
-  shotType: string;
+  shotType?: string;
   /** Nettoexplosiv mängd i kg (NEM) */
-  nem: number;
+  nem?: number;
 }
 
 export interface Product {
@@ -79,6 +79,28 @@ Pjäsen inleds med färgstarka skott och breda guldexplosioner, följt av effekt
     },
   },
   {
+    slug: "pyro-addict-2",
+    name: "Pyro Addict 2",
+    category: "batteri",
+    categoryLabel: "Batteri",
+    subcategoryLabel: "Batterier",
+    produktfordelar: ["Stor variation", "Effekter och färger", "61 skott"],
+    specifications: {
+      shots: 61,
+      effectHeight: 50,
+      duration: 50,
+      caliber: "25-30",
+    },
+    description:
+      "Pyro Addict 2 från Riakeo är ett batteri med 61 skott i 25 och 30 mm kaliber. Effekthöjden är 50 meter och brinntiden 50 sekunder, med stor variation i både effekter och färger.\n\nDen längre showen ger plats åt flera olika partier och passar när du vill ha mer skott och mer färg än ett mindre batteri.",
+    priceSek: 1299,
+    videoUrl: "https://www.youtube.com/watch?v=1ZxoAYtKitw",
+    images: {
+      main: "/images/product-images/pyro-addict-2.png",
+      gallery: [],
+    },
+  },
+  {
     slug: "thunderbolt-3",
     name: "Thunderbolt 3",
     category: "batteri",
@@ -132,6 +154,28 @@ Pjäsen inleds med färgstarka skott och breda guldexplosioner, följt av effekt
     },
   },
   {
+    slug: "spider-king",
+    name: "Spider King",
+    category: "batteri",
+    categoryLabel: "Batteri",
+    subcategoryLabel: "Batterier",
+    produktfordelar: ["Häftiga effekter", "Härligt häng", "25 skott"],
+    specifications: {
+      shots: 25,
+      effectHeight: 50,
+      duration: 45,
+      caliber: 30,
+    },
+    description:
+      "Spider King från Riakeo är en 25-skottare i 30 mm kaliber. Med 50 meters effekthöjd och 45 sekunders brinntid bjuder den på stor variation i häftiga effekter, med ett härligt häng som får skotten att dröja kvar i luften.\n\nPjäsen passar dig som vill ha en tydlig, hängande show i ett kompakt batteri.",
+    priceSek: 499,
+    videoUrl: "https://www.youtube.com/watch?v=SrD4PAdcMUA",
+    images: {
+      main: "/images/product-images/spider-king.png",
+      gallery: [],
+    },
+  },
+  {
     slug: "exodus",
     name: "Exodus",
     category: "compound",
@@ -157,35 +201,6 @@ Pjäsen inleds med färgstarka skott och breda guldexplosioner, följt av effekt
     videoUrl: "https://www.youtube.com/watch?v=9M4lkoB7mXY",
     images: {
       main: "/images/product-images/exodus.png",
-      gallery: [],
-    },
-  },
-  {
-    slug: "peking-opera-1",
-    name: "Peking Opera 1",
-    category: "compound",
-    categoryLabel: "Compound",
-    subcategoryLabel: "Compounds",
-    produktfordelar: [
-      "Multieffekter",
-      "Färgglada färger",
-      "Kraftfull final",
-      "51 skott",
-    ],
-    specifications: {
-      shots: 51,
-      effectHeight: 50,
-      duration: 50,
-      caliber: 30,
-      shotType: "Raka och vinkelställda",
-      nem: 0.962,
-    },
-    description:
-      "Peking Opera 1 från Riakeo är ett elegant batteri med 51 skott och nära 1 kg krut, som bjuder på en välbalanserad show med tydligt fokus på guld. Fyrverkeriet börjar med stigande svansar kombinerat med färger i rött, grönt, blått samt blinkande vita och gula stjärnor.\n\nTempot byggs upp mot en bred final, där guld och sprakande effekter fyller hela himlen. En komplett show med klassiska färger och snygg koreografi – perfekt för dig som vill ha en stilren men kraftfull pjäs med tryck i avslutningen.",
-    priceSek: 1599,
-    videoUrl: "https://www.youtube.com/watch?v=OG7J082lvCE",
-    images: {
-      main: "/images/product-images/peking-opera-1.png",
       gallery: [],
     },
   },
@@ -239,6 +254,95 @@ Pjäsen inleds med färgstarka skott och breda guldexplosioner, följt av effekt
     videoUrl: "https://www.youtube.com/watch?v=j4oJQ3CB40g",
     images: {
       main: "/images/product-images/weapon-x.png",
+      gallery: [],
+    },
+  },
+  {
+    slug: "massive",
+    name: "Massive",
+    category: "compound",
+    categoryLabel: "Compound",
+    subcategoryLabel: "Compounds",
+    produktfordelar: ["Blandade krevader", "Regnbågseffekter", "40 skott"],
+    specifications: {
+      shots: 40,
+      effectHeight: 50,
+      duration: 42,
+      caliber: 30,
+    },
+    description:
+      "Massive från Riakeo är en 30 mm compound med 40 skott. Skotten går av som blandade krevader i mäktiga regnbågseffekter, med 50 meters effekthöjd och 42 sekunders brinntid.\n\nDen täta showen fyller himlen snabbt och passar när du vill ha en kraftfull compound med tydliga regnbågssekvenser.",
+    priceSek: 1499,
+    videoUrl: "https://www.youtube.com/watch?v=b54gcRJPxZI",
+    images: {
+      main: "/images/product-images/massive.png",
+      gallery: [],
+    },
+  },
+  {
+    slug: "dragon-wall",
+    name: "Dragon Wall",
+    category: "compound",
+    categoryLabel: "Compound",
+    subcategoryLabel: "Compounds",
+    produktfordelar: ["Snygga sekvenser", "Mäktiga krevader", "101 skott"],
+    specifications: {
+      shots: 101,
+      effectHeight: 50,
+      duration: 60,
+      caliber: 30,
+    },
+    description:
+      "Dragon Wall från Riakeo är en 101-skotts compound i 30 mm kaliber. Med 50 meters effekthöjd och 60 sekunders brinntid skjuts den i snygga sekvenser med mäktiga krevader.\n\nShowen växlar mellan tydliga partier och ger en bred, kraftfull helhet. Dragon Wall passar firanden där både längd och tryck ska synas.",
+    priceSek: 2899,
+    videoUrl: "https://www.youtube.com/watch?v=Ib0mqhgxmhs",
+    images: {
+      main: "/images/product-images/dragon-wall.png",
+      gallery: [],
+    },
+  },
+  {
+    slug: "shaolin-4",
+    name: "Shaolin 4",
+    category: "compound",
+    categoryLabel: "Compound",
+    subcategoryLabel: "Compounds",
+    produktfordelar: ["Kristallklara färger", "Snygg final", "98 skott"],
+    specifications: {
+      shots: 98,
+      effectHeight: 50,
+      duration: 65,
+      caliber: 30,
+    },
+    description:
+      "Shaolin 4 från Riakeo är en compound med 98 skott i 30 mm kaliber. Effekthöjden är 50 meter och brinntiden 65 sekunder, med stor variation i kristallklara färger.\n\nFinalen är riktigt stark och knyter ihop showen. Shaolin 4 passar dig som vill ha en lång, färgrik compound med ett avslut som verkligen syns.",
+    priceSek: 2999,
+    videoUrl: "https://www.youtube.com/watch?v=Lc398O7HbIM",
+    images: {
+      main: "/images/product-images/shaolin-4.png",
+      gallery: [],
+    },
+  },
+  {
+    slug: "shaolin-2",
+    name: "Shaolin 2",
+    category: "compound",
+    categoryLabel: "Compound",
+    subcategoryLabel: "Compounds",
+    produktfordelar: ["3,8 kg krut", "Storslagen final", "208 skott"],
+    specifications: {
+      shots: 208,
+      effectHeight: 50,
+      duration: 70,
+      caliber: "20-30",
+      nem: 3.784,
+    },
+    description:
+      "Shaolin 2 från Riakeo är en 208-skotts compound i 20 och 30 mm kaliber, laddad med 3 784 gram krut. Effekthöjden är 50 meter och brinntiden 70 sekunder.\n\nDen öppnar med en grym inledning och avslutas med en storslagen final. Shaolin 2 är pjäsen för dig som vill ha maximal volym och ett avslut som fyller himlen.",
+    priceSek: 5499,
+    videoUrl: "https://www.youtube.com/watch?v=v-hK_Sm0qT8",
+    images: {
+      main: "/images/product-images/shaolin-2.png",
       gallery: [],
     },
   },

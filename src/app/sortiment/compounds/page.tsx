@@ -8,11 +8,11 @@ import { products } from "@/data/products";
 export const metadata = {
   title: "Compounds - Professionella Fyrverkerier",
   description:
-    "Köp compounds från Riakeo - professionella fyrverkeripjäser med upp till 152 skott och 85 sekunders brinntid. Maximal effekt för stora evenemang.",
+    "Köp compounds från Riakeo - professionella fyrverkeripjäser med upp till 208 skott och 85 sekunders brinntid. Maximal effekt för stora evenemang.",
   openGraph: {
     title: "Compounds - Professionella Fyrverkerier | Riakeo Fireworks",
     description:
-      "Professionella compounds med upp till 152 skott för en imponerande fyrverkerishow.",
+      "Professionella compounds med upp till 208 skott för en imponerande fyrverkerishow.",
   },
   alternates: {
     canonical: "/sortiment/compounds",

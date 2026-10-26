@@ -9,8 +9,8 @@ interface ProductAccordionProps {
     effectHeight: number;
     duration: number;
     caliber: number | string;
-    shotType: string;
-    nem: number;
+    shotType?: string;
+    nem?: number;
   };
   description: string;
 }
@@ -64,14 +64,18 @@ export default function ProductAccordion({
             <p className="text-sm text-gray-500 mb-1">Kaliber</p>
             <p className="text-xl font-bold text-gray-900">{specifications.caliber} mm</p>
           </div>
-          <div className="p-4 bg-gray-50 rounded-xl">
-            <p className="text-sm text-gray-500 mb-1">Typ av skott</p>
-            <p className="text-lg font-bold text-gray-900">{specifications.shotType}</p>
-          </div>
-          <div className="p-4 bg-gray-50 rounded-xl">
-            <p className="text-sm text-gray-500 mb-1">NEM</p>
-            <p className="text-xl font-bold text-gray-900">{specifications.nem} kg</p>
-          </div>
+          {specifications.shotType ? (
+            <div className="p-4 bg-gray-50 rounded-xl">
+              <p className="text-sm text-gray-500 mb-1">Typ av skott</p>
+              <p className="text-lg font-bold text-gray-900">{specifications.shotType}</p>
+            </div>
+          ) : null}
+          {specifications.nem != null ? (
+            <div className="p-4 bg-gray-50 rounded-xl">
+              <p className="text-sm text-gray-500 mb-1">NEM</p>
+              <p className="text-xl font-bold text-gray-900">{specifications.nem} kg</p>
+            </div>
+          ) : null}
         </div>
       ),
     },
