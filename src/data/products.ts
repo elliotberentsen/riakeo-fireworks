@@ -297,7 +297,7 @@ Pjäsen inleds med färgstarka skott och breda guldexplosioner, följt av effekt
     priceSek: 2899,
     videoUrl: "https://www.youtube.com/watch?v=Ib0mqhgxmhs",
     images: {
-      main: "/images/product-images/dragon-wall.png",
+      main: "/images/product-images/dragon-wall-1.png",
       gallery: [],
     },
   },
